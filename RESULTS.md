@@ -74,6 +74,37 @@ Current observed contents:
 - total pairs: 4
 - valid records: 8
 - invalid records: 0
+- average O1 gain: 2.75
+
+Record strength coverage:
+
+- borderline_acceptable: 1
+- rejected: 1
+- strong_acceptable: 4
+- weak_acceptable: 2
+
+Record verdict coverage:
+
+- accepted: 7
+- rejected: 1
+
+Domain coverage:
+
+- motion: 4
+- perception: 2
+- time: 2
+
+Pair coverage by domain:
+
+- motion: 2
+- perception: 1
+- time: 1
+
+Pair type coverage:
+
+- acceptable_vs_rejected: 1
+- strong_vs_borderline: 1
+- strong_vs_weak: 2
 
 This dataset is used to compare alternative annotations of the same input:
 - strong acceptable annotation
@@ -324,6 +355,91 @@ No validation errors found.
 
 ---
 
+## Comparison pairs inspection
+
+Comparison inspector file:
+
+tools/inspect_o1_comparison_pairs.py
+
+Purpose:
+
+- summarize total records and total pairs
+- summarize average gain
+- count records by strength
+- count records by verdict
+- count records by domain
+- count pairs by domain
+- count pair types
+- print sample pairs
+
+Run:
+
+python tools/inspect_o1_comparison_pairs.py
+
+Observed output:
+
+O1 comparison pairs inspection
+------------------------------
+dataset: data/o1_comparison_pairs.jsonl
+total records: 8
+total pairs: 4
+average o1_gain: 2.75
+
+Records by strength:
+- borderline_acceptable: 1
+- rejected: 1
+- strong_acceptable: 4
+- weak_acceptable: 2
+
+Records by verdict:
+- accepted: 7
+- rejected: 1
+
+Records by domain:
+- motion: 4
+- perception: 2
+- time: 2
+
+Pairs by domain:
+- motion: 2
+- perception: 1
+- time: 1
+
+Pair types:
+- acceptable_vs_rejected: 1
+- strong_vs_borderline: 1
+- strong_vs_weak: 2
+
+Sample pairs:
+
+[cmp_001]
+  variant A: strength=strong_acceptable, verdict=accepted, o1_gain=4
+    input: The object is still
+    reformulation: The object remains at constant position relative to the chosen reference frame.
+  variant B: strength=weak_acceptable, verdict=accepted, o1_gain=3
+    input: The object is still
+    reformulation: The object appears not to change position from this observational frame.
+
+[cmp_002]
+  variant A: strength=strong_acceptable, verdict=accepted, o1_gain=4
+    input: Time passes
+    reformulation: State changes are ordered and compared in a way experienced as temporal progression by the observer.
+  variant B: strength=weak_acceptable, verdict=accepted, o1_gain=3
+    input: Time passes
+    reformulation: Observed change is organized in a sequence interpreted as temporal passage.
+
+[cmp_003]
+  variant A: strength=strong_acceptable, verdict=accepted, o1_gain=4
+    input: I see a tree
+    reformulation: My visual system registers and interprets signals consistent with a tree at this position relative to me.
+  variant B: strength=borderline_acceptable, verdict=accepted, o1_gain=3
+    input: I see a tree
+    reformulation: A portion of the visual field is stabilized and interpreted as a tree.
+
+All annotation ids are unique.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -361,7 +477,8 @@ At this stage, the repository can already show:
 7. executable dataset checks
 8. executable dataset inspection
 9. pair-level validation for comparative annotations
-10. a unified runner for the whole O1 block
+10. pair-level inspection for comparative annotations
+11. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -377,7 +494,6 @@ The project still lacks:
 - comparison between multiple annotators on the same inputs
 - explicit disagreement analysis
 - automatic scoring proposals
-- dedicated inspection tooling for comparison pairs
 - bridge to stronger structural systems
 
 So the repository is now minimally executable, but still early.
