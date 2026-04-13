@@ -56,9 +56,16 @@ def main():
         str(COMPARISON_DATASET),
     ]
 
-    comparison_validate_code = run_command(comparison_validate_cmd)
+    comparison_inspect_cmd = [
+        python_executable,
+        "tools/inspect_o1_comparison_pairs.py",
+        str(COMPARISON_DATASET),
+    ]
 
-    if comparison_validate_code != 0:
+    comparison_validate_code = run_command(comparison_validate_cmd)
+    comparison_inspect_code = run_command(comparison_inspect_cmd)
+
+    if comparison_validate_code != 0 or comparison_inspect_code != 0:
         overall_exit_code = 1
 
     raise SystemExit(overall_exit_code)
