@@ -1,7 +1,8 @@
 import json
+import sys
 from pathlib import Path
 
-DATASET_PATH = Path("data/o1_miniset.jsonl")
+DEFAULT_DATASET_PATH = Path("data/o1_miniset.jsonl")
 
 REQUIRED_STRING_FIELDS = [
     "id",
@@ -82,10 +83,10 @@ def validate_record(record, line_number, seen_ids):
     return errors
 
 
-def main():
-    if not DATASET_PATH.exists():
-        print(f"ERROR: dataset not found at {DATASET_PATH}")
-        return
+def validate_dataset(dataset_path):
+    if not dataset_path.exists():
+        print(f"ERROR: dataset not found at {dataset_path}")
+        return 1
 
     total = 0
     valid = 0
@@ -93,7 +94,7 @@ def main():
     all_errors = []
     seen_ids = set()
 
-    with DATASET_PATH.open("r", encoding="utf-8") as f:
+    with dataset_path.open("r", encoding="utf-8") as f:
         for line_number, raw_line in enumerate(f, start=1):
             line = raw_line.strip()
 
@@ -122,7 +123,7 @@ def main():
 
     print("O1 dataset validation")
     print("---------------------")
-    print(f"dataset: {DATASET_PATH}")
+    print(f"dataset: {dataset_path}")
     print(f"total records: {total}")
     print(f"valid records: {valid}")
     print(f"invalid records: {invalid}")
@@ -131,8 +132,16 @@ def main():
         print("\nErrors:")
         for error in all_errors:
             print(f"- {error}")
-    else:
-        print("\nNo validation errors found.")
+        return 1
+
+    print("\nNo validation errors found.")
+    return 0
+
+
+def main():
+    dataset_arg = sys.argv[1] if len(sys.argv) > 1 else str(DEFAULT_DATASET_PATH)
+    dataset_path = Path(dataset_arg)
+    raise SystemExit(validate_dataset(dataset_path))
 
 
 if __name__ == "__main__":
