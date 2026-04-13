@@ -168,6 +168,34 @@ It adds an explicit layer for:
 
 ---
 
+## Multi-annotator seed dataset status
+
+Multi-annotator dataset file:
+
+data/o1_multiannotator_seed.jsonl
+
+Current observed contents:
+
+- total records: 8
+- valid records: 8
+- invalid records: 0
+- total input groups: 4
+
+This dataset is used to test whether O1 remains structurally stable when the same input is annotated by different annotators.
+
+Current annotator setup:
+
+- annotator_alpha
+- annotator_beta
+
+Current purpose:
+
+- preserve shared input identity
+- compare annotation stability across annotators
+- detect whether O1 captures structure or only a single writing style
+
+---
+
 ## Validator
 
 Validator file:
@@ -627,6 +655,41 @@ All comparison ids are unique.
 
 ---
 
+## Multi-annotator seed validation
+
+Multi-annotator dataset file:
+
+data/o1_multiannotator_seed.jsonl
+
+Purpose:
+
+- validate grouped records for the same input across different annotators
+- check record-level metric consistency
+- ensure each input group contains exactly two distinct annotators
+- ensure grouped records share domain and input text
+
+Validator file:
+
+tools/validate_o1_multiannotator_seed.py
+
+Run:
+
+python tools/validate_o1_multiannotator_seed.py
+
+Observed output:
+
+O1 multi-annotator seed validation
+----------------------------------
+dataset: data/o1_multiannotator_seed.jsonl
+total records: 8
+valid records: 8
+invalid records: 0
+total input groups: 4
+
+No validation errors found.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -641,6 +704,8 @@ Purpose:
 - inspect the borderline dataset
 - validate the comparison pairs dataset
 - inspect the comparison pairs dataset
+- validate the disagreement labels dataset
+- inspect the disagreement labels dataset
 
 Run:
 
@@ -661,15 +726,17 @@ At this stage, the repository can already show:
 3. a fixed borderline stress-test dataset
 4. a fixed comparison-pairs dataset
 5. a fixed disagreement-labels dataset
-6. explicit gain fields
-7. accepted and rejected cases
-8. executable dataset checks
-9. executable dataset inspection
-10. pair-level validation for comparative annotations
-11. pair-level inspection for comparative annotations
-12. disagreement-type validation
-13. disagreement-type inspection
-14. a unified runner for the whole O1 block
+6. a fixed multi-annotator seed dataset
+7. explicit gain fields
+8. accepted and rejected cases
+9. executable dataset checks
+10. executable dataset inspection
+11. pair-level validation for comparative annotations
+12. pair-level inspection for comparative annotations
+13. disagreement-type validation
+14. disagreement-type inspection
+15. multi-annotator seed validation
+16. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -681,9 +748,10 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- disagreement inspection inside the unified runner
+- multi-annotator inspection tooling
+- multi-annotator integration inside the unified runner
 - harder borderline cases across more domains
-- comparison between multiple annotators on the same inputs
+- comparison between more than two annotators on the same inputs
 - explicit disagreement analysis beyond labels
 - automatic scoring proposals
 - bridge to stronger structural systems
@@ -708,6 +776,7 @@ It is now a small but structured protocol with:
 - validated borderline dataset
 - validated comparison pairs dataset
 - validated disagreement labels dataset
+- validated multi-annotator seed dataset
 - executable tooling
 - unified checks runner
 
