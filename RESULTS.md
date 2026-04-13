@@ -236,6 +236,36 @@ Current purpose:
 
 ---
 
+## Multi-annotator agreement labels dataset status
+
+Agreement labels dataset file:
+
+data/o1_multiannotator_agreement_labels.jsonl
+
+Current observed contents:
+
+- total records: 4
+- valid records: 4
+- invalid records: 0
+
+Agreement type coverage:
+
+- A1: 3
+- A3: 1
+
+Agreement label coverage:
+
+- acceptable_convergence: 3
+- verdict_split: 1
+
+This dataset records the classified agreement outcome for each multi-annotator input group.
+
+It adds an explicit layer for:
+- acceptable convergence
+- verdict split
+
+---
+
 ## Validator
 
 Validator file:
@@ -917,6 +947,40 @@ Group details:
 
 ---
 
+## Multi-annotator agreement labels validation
+
+Agreement labels dataset file:
+
+data/o1_multiannotator_agreement_labels.jsonl
+
+Purpose:
+
+- validate agreement outcome records derived from multi-annotator groups
+- check agreement type and agreement label consistency
+- verify gain gap consistency
+- verify agreement class assignment from verdict pattern and gain difference
+
+Validator file:
+
+tools/validate_o1_multiannotator_agreement_labels.py
+
+Run:
+
+python tools/validate_o1_multiannotator_agreement_labels.py
+
+Observed output:
+
+O1 multi-annotator agreement labels validation
+----------------------------------------------
+dataset: data/o1_multiannotator_agreement_labels.jsonl
+total records: 4
+valid records: 4
+invalid records: 0
+
+No validation errors found.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -935,6 +999,7 @@ Purpose:
 - inspect the disagreement labels dataset
 - validate the multi-annotator seed dataset
 - inspect the multi-annotator seed dataset
+- analyze multi-annotator agreement
 
 Run:
 
@@ -956,18 +1021,20 @@ At this stage, the repository can already show:
 4. a fixed comparison-pairs dataset
 5. a fixed disagreement-labels dataset
 6. a fixed multi-annotator seed dataset
-7. explicit gain fields
-8. accepted and rejected cases
-9. executable dataset checks
-10. executable dataset inspection
-11. pair-level validation for comparative annotations
-12. pair-level inspection for comparative annotations
-13. disagreement-type validation
-14. disagreement-type inspection
-15. multi-annotator seed validation
-16. multi-annotator seed inspection
-17. multi-annotator agreement analysis
-18. a unified runner for the whole O1 block
+7. a fixed multi-annotator agreement labels dataset
+8. explicit gain fields
+9. accepted and rejected cases
+10. executable dataset checks
+11. executable dataset inspection
+12. pair-level validation for comparative annotations
+13. pair-level inspection for comparative annotations
+14. disagreement-type validation
+15. disagreement-type inspection
+16. multi-annotator seed validation
+17. multi-annotator seed inspection
+18. multi-annotator agreement analysis
+19. multi-annotator agreement labels validation
+20. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -979,7 +1046,8 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- integration of multi-annotator agreement analysis into the unified runner
+- inspection tooling for multi-annotator agreement labels
+- integration of multi-annotator agreement labels into the unified runner
 - harder borderline cases across more domains
 - comparison between more than two annotators on the same inputs
 - explicit disagreement analysis beyond labels
@@ -1002,11 +1070,13 @@ It is now a small but structured protocol with:
 - explicit annotation discipline
 - explicit comparison rules
 - explicit disagreement typing
+- explicit multi-annotator agreement typing
 - validated base dataset
 - validated borderline dataset
 - validated comparison pairs dataset
 - validated disagreement labels dataset
 - validated multi-annotator seed dataset
+- validated multi-annotator agreement labels dataset
 - executable tooling
 - unified checks runner
 
