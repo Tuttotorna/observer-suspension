@@ -180,6 +180,41 @@ Current observed contents:
 - valid records: 8
 - invalid records: 0
 - total input groups: 4
+- average O1 gain: 2.88
+- average gain gap per group: 1.25
+- min gain gap: 1
+- max gain gap: 4
+
+Annotator coverage:
+
+- annotator_alpha: 4
+- annotator_beta: 4
+
+Domain coverage:
+
+- motion: 4
+- perception: 2
+- time: 2
+
+Verdict coverage:
+
+- accepted: 7
+- rejected: 1
+
+Input group size coverage:
+
+- size 2: 4
+
+Input group domain coverage:
+
+- motion: 2
+- perception: 1
+- time: 1
+
+Verdict pattern coverage:
+
+- ('accepted', 'accepted'): 3
+- ('accepted', 'rejected'): 1
 
 This dataset is used to test whether O1 remains structurally stable when the same input is annotated by different annotators.
 
@@ -690,6 +725,104 @@ No validation errors found.
 
 ---
 
+## Multi-annotator seed inspection
+
+Multi-annotator inspector file:
+
+tools/inspect_o1_multiannotator_seed.py
+
+Purpose:
+
+- summarize total records and input groups
+- summarize average o1_gain
+- summarize average, min, and max gain gap per group
+- count records by annotator
+- count records by domain
+- count records by verdict
+- count input groups by size
+- count input groups by domain
+- count verdict patterns by group
+- print sample input groups
+
+Run:
+
+python tools/inspect_o1_multiannotator_seed.py
+
+Observed output:
+
+O1 multi-annotator seed inspection
+----------------------------------
+dataset: data/o1_multiannotator_seed.jsonl
+total records: 8
+total input groups: 4
+average o1_gain: 2.88
+average gain gap per group: 1.25
+min gain gap: 1
+max gain gap: 4
+
+Records by annotator:
+- annotator_alpha: 4
+- annotator_beta: 4
+
+Records by domain:
+- motion: 4
+- perception: 2
+- time: 2
+
+Records by verdict:
+- accepted: 7
+- rejected: 1
+
+Input groups by size:
+- size 2: 4
+
+Input groups by domain:
+- motion: 2
+- perception: 1
+- time: 1
+
+Verdict patterns by group:
+- ('accepted', 'accepted'): 3
+- ('accepted', 'rejected'): 1
+
+Sample input groups:
+
+[ma_input_001]
+  annotator=annotator_alpha, domain=motion, verdict=accepted, o1_gain=4
+    input: The object is still
+    reformulation: The object remains at constant position relative to the chosen reference frame.
+  annotator=annotator_beta, domain=motion, verdict=accepted, o1_gain=3
+    input: The object is still
+    reformulation: The object does not change position relative to the observer's chosen frame.
+
+[ma_input_002]
+  annotator=annotator_alpha, domain=time, verdict=accepted, o1_gain=4
+    input: Time passes
+    reformulation: State changes are ordered and compared in a way experienced as temporal progression by the observer.
+  annotator=annotator_beta, domain=time, verdict=accepted, o1_gain=3
+    input: Time passes
+    reformulation: Observed change is structured in sequence and interpreted as temporal passage.
+
+[ma_input_003]
+  annotator=annotator_alpha, domain=perception, verdict=accepted, o1_gain=4
+    input: I see a tree
+    reformulation: My visual system registers and interprets signals consistent with a tree at this position relative to me.
+  annotator=annotator_beta, domain=perception, verdict=accepted, o1_gain=3
+    input: I see a tree
+    reformulation: A portion of the visual field is stabilized and interpreted as a tree.
+
+[ma_input_004]
+  annotator=annotator_alpha, domain=motion, verdict=accepted, o1_gain=4
+    input: The train is moving
+    reformulation: The train changes position relative to the observer's current reference frame.
+  annotator=annotator_beta, domain=motion, verdict=rejected, o1_gain=0
+    input: The train is moving
+    reformulation: Motion is an illusion created by perspective.
+
+All record ids are unique.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -706,6 +839,8 @@ Purpose:
 - inspect the comparison pairs dataset
 - validate the disagreement labels dataset
 - inspect the disagreement labels dataset
+- validate the multi-annotator seed dataset
+- inspect the multi-annotator seed dataset
 
 Run:
 
@@ -736,7 +871,8 @@ At this stage, the repository can already show:
 13. disagreement-type validation
 14. disagreement-type inspection
 15. multi-annotator seed validation
-16. a unified runner for the whole O1 block
+16. multi-annotator seed inspection
+17. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -748,8 +884,7 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- multi-annotator inspection tooling
-- multi-annotator integration inside the unified runner
+- multi-annotator integration inside the unified runner if not yet updated in code
 - harder borderline cases across more domains
 - comparison between more than two annotators on the same inputs
 - explicit disagreement analysis beyond labels
