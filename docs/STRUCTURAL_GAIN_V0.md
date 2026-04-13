@@ -1,4 +1,4 @@
-# Structural Gain v0
+# tructural Gain v0
 
 This document defines the first working notion of structural gain for Protocol O1.
 
