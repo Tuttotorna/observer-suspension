@@ -45,8 +45,17 @@ data/o1_borderline_cases.jsonl
 Current observed contents:
 
 - total records: 10
-- valid records: 10
-- invalid records: 0
+- accepted: 5
+- rejected: 5
+- average O1 gain: 2.00
+
+Domain coverage:
+
+- causality: 2
+- identity: 2
+- motion: 2
+- perception: 2
+- time: 2
 
 This dataset is used to stress-test O1 on harder matched pairs:
 same input, one acceptable reformulation, one rejected reformulation.
@@ -115,7 +124,7 @@ Purpose:
 - count records by domain and verdict
 - print sample records
 
-Run:
+Run on base dataset:
 
 python tools/inspect_o1_dataset.py
 
@@ -191,6 +200,70 @@ Sample records:
 
 All record ids are unique.
 
+Run on borderline dataset:
+
+python tools/inspect_o1_dataset.py data/o1_borderline_cases.jsonl
+
+Observed output:
+
+O1 dataset inspection
+---------------------
+dataset: data/o1_borderline_cases.jsonl
+total records: 10
+average o1_gain: 2.00
+
+Records by verdict:
+- accepted: 5
+- rejected: 5
+
+Records by domain:
+- causality: 2
+- identity: 2
+- motion: 2
+- perception: 2
+- time: 2
+
+Records by domain and verdict:
+- causality: accepted=1, rejected=1
+- identity: accepted=1, rejected=1
+- motion: accepted=1, rejected=1
+- perception: accepted=1, rejected=1
+- time: accepted=1, rejected=1
+
+Sample records:
+
+[o1b_001] motion
+  standard: The train is moving
+  reformulation: The train changes position relative to the observer's current reference frame.
+  o1_gain: 4
+  verdict: accepted
+
+[o1b_002] motion
+  standard: The train is moving
+  reformulation: Motion is an illusion created by perspective.
+  o1_gain: 0
+  verdict: rejected
+
+[o1b_003] time
+  standard: The meeting starts at 3 PM
+  reformulation: Within the agreed local time convention, the meeting begins at the coordinate labeled 3 PM.
+  o1_gain: 4
+  verdict: accepted
+
+[o1b_004] time
+  standard: The meeting starts at 3 PM
+  reformulation: Time is socially constructed.
+  o1_gain: 0
+  verdict: rejected
+
+[o1b_005] perception
+  standard: The light is bright
+  reformulation: The light produces high perceived intensity for this observer under current adaptation conditions.
+  o1_gain: 4
+  verdict: accepted
+
+All record ids are unique.
+
 ---
 
 ## Meaning of the current result
@@ -220,7 +293,6 @@ The project still lacks:
 - explicit disagreement analysis
 - automatic scoring proposals
 - bridge to stronger structural systems
-- inspection tooling for the borderline dataset
 
 So the repository is now minimally executable, but still early.
 
@@ -240,4 +312,3 @@ It is now a small but structured protocol with:
 - validated borderline dataset
 
 That is the correct first threshold.
-
