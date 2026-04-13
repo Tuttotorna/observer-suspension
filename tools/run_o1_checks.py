@@ -20,6 +20,7 @@ def run_command(command):
     if result.stderr:
         print(result.stderr.rstrip())
 
+    print("-" * 40)
     print()
     return result.returncode
 
@@ -34,6 +35,7 @@ def main():
             "tools/validate_o1_dataset.py",
             str(dataset),
         ]
+
         inspect_cmd = [
             python_executable,
             "tools/inspect_o1_dataset.py",
