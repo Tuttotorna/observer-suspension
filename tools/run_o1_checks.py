@@ -100,10 +100,21 @@ def main():
         str(MULTIANNOTATOR_DATASET),
     ]
 
+    multiannotator_agreement_cmd = [
+        python_executable,
+        "tools/analyze_o1_multiannotator_agreement.py",
+        str(MULTIANNOTATOR_DATASET),
+    ]
+
     multiannotator_validate_code = run_command(multiannotator_validate_cmd)
     multiannotator_inspect_code = run_command(multiannotator_inspect_cmd)
+    multiannotator_agreement_code = run_command(multiannotator_agreement_cmd)
 
-    if multiannotator_validate_code != 0 or multiannotator_inspect_code != 0:
+    if (
+        multiannotator_validate_code != 0
+        or multiannotator_inspect_code != 0
+        or multiannotator_agreement_code != 0
+    ):
         overall_exit_code = 1
 
     raise SystemExit(overall_exit_code)
