@@ -127,6 +127,9 @@ Current observed contents:
 - total records: 4
 - valid records: 4
 - invalid records: 0
+- average gain_gap: 1.75
+- min gain_gap: 1
+- max gain_gap: 4
 
 Disagreement type coverage:
 
@@ -136,9 +139,25 @@ Disagreement type coverage:
 
 Disagreement label coverage:
 
-- precision_disagreement: 2
 - boundary_disagreement: 1
+- precision_disagreement: 2
 - verdict_disagreement: 1
+
+Domain coverage:
+
+- motion: 2
+- perception: 1
+- time: 1
+
+target_preserved coverage:
+
+- 0: 1
+- 1: 3
+
+verdict_split coverage:
+
+- 0: 3
+- 1: 1
 
 This dataset is used to classify the kind of divergence between two annotations of the same input.
 
@@ -508,6 +527,106 @@ No validation errors found.
 
 ---
 
+## Disagreement labels inspection
+
+Disagreement inspector file:
+
+tools/inspect_o1_disagreement_labels.py
+
+Purpose:
+
+- summarize total records
+- summarize average, min, and max gain_gap
+- count records by disagreement type
+- count records by disagreement label
+- count records by domain
+- count records by target_preserved
+- count records by verdict_split
+- print sample disagreement records
+
+Run:
+
+python tools/inspect_o1_disagreement_labels.py
+
+Observed output:
+
+O1 disagreement labels inspection
+--------------------------------
+dataset: data/o1_disagreement_labels.jsonl
+total records: 4
+average gain_gap: 1.75
+min gain_gap: 1
+max gain_gap: 4
+
+Records by disagreement type:
+- D1: 2
+- D3: 1
+- D4: 1
+
+Records by disagreement label:
+- boundary_disagreement: 1
+- precision_disagreement: 2
+- verdict_disagreement: 1
+
+Records by domain:
+- motion: 2
+- perception: 1
+- time: 1
+
+Records by target_preserved:
+- 0: 1
+- 1: 3
+
+Records by verdict_split:
+- 0: 3
+- 1: 1
+
+Sample disagreement records:
+
+[dis_001]
+  pair_id: cmp_001
+  input: The object is still
+  disagreement_type: D1
+  disagreement_label: precision_disagreement
+  annotation_a_strength: strong_acceptable
+  annotation_b_strength: weak_acceptable
+  gain_gap: 1
+  notes: Both annotations preserve the same target and expose frame dependence, but annotation A is structurally sharper and reduces ambiguity more strongly.
+
+[dis_002]
+  pair_id: cmp_002
+  input: Time passes
+  disagreement_type: D1
+  disagreement_label: precision_disagreement
+  annotation_a_strength: strong_acceptable
+  annotation_b_strength: weak_acceptable
+  gain_gap: 1
+  notes: Both annotations remain acceptable, but annotation A decomposes the distortion more precisely than annotation B.
+
+[dis_003]
+  pair_id: cmp_003
+  input: I see a tree
+  disagreement_type: D3
+  disagreement_label: boundary_disagreement
+  annotation_a_strength: strong_acceptable
+  annotation_b_strength: borderline_acceptable
+  gain_gap: 1
+  notes: Both annotations remain acceptable, but annotation B moves closer to theoretical reinterpretation and therefore sits nearer the protocol boundary.
+
+[dis_004]
+  pair_id: cmp_004
+  input: The train is moving
+  disagreement_type: D4
+  disagreement_label: verdict_disagreement
+  annotation_a_strength: strong_acceptable
+  annotation_b_strength: rejected
+  gain_gap: 4
+  notes: Annotation A preserves target and structural relation. Annotation B collapses into abstraction and fails the O1 acceptance threshold.
+
+All comparison ids are unique.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -549,7 +668,8 @@ At this stage, the repository can already show:
 10. pair-level validation for comparative annotations
 11. pair-level inspection for comparative annotations
 12. disagreement-type validation
-13. a unified runner for the whole O1 block
+13. disagreement-type inspection
+14. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -561,7 +681,7 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- disagreement inspection tooling
+- disagreement inspection inside the unified runner
 - harder borderline cases across more domains
 - comparison between multiple annotators on the same inputs
 - explicit disagreement analysis beyond labels
