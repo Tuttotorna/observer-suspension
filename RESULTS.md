@@ -116,6 +116,39 @@ It adds controlled variation on identical inputs.
 
 ---
 
+## Disagreement labels dataset status
+
+Disagreement dataset file:
+
+data/o1_disagreement_labels.jsonl
+
+Current observed contents:
+
+- total records: 4
+- valid records: 4
+- invalid records: 0
+
+Disagreement type coverage:
+
+- D1: 2
+- D3: 1
+- D4: 1
+
+Disagreement label coverage:
+
+- precision_disagreement: 2
+- boundary_disagreement: 1
+- verdict_disagreement: 1
+
+This dataset is used to classify the kind of divergence between two annotations of the same input.
+
+It adds an explicit layer for:
+- precision disagreement
+- boundary disagreement
+- verdict disagreement
+
+---
+
 ## Validator
 
 Validator file:
@@ -440,6 +473,41 @@ All annotation ids are unique.
 
 ---
 
+## Disagreement labels validation
+
+Disagreement dataset file:
+
+data/o1_disagreement_labels.jsonl
+
+Purpose:
+
+- validate disagreement-type records linked to comparison pairs
+- check disagreement type and label consistency
+- verify verdict and strength consistency across both annotations
+- verify target preservation and verdict split logic
+- verify gain gap constraints
+
+Validator file:
+
+tools/validate_o1_disagreement_labels.py
+
+Run:
+
+python tools/validate_o1_disagreement_labels.py
+
+Observed output:
+
+O1 disagreement labels validation
+--------------------------------
+dataset: data/o1_disagreement_labels.jsonl
+total records: 4
+valid records: 4
+invalid records: 0
+
+No validation errors found.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -453,6 +521,7 @@ Purpose:
 - validate the borderline dataset
 - inspect the borderline dataset
 - validate the comparison pairs dataset
+- inspect the comparison pairs dataset
 
 Run:
 
@@ -472,13 +541,15 @@ At this stage, the repository can already show:
 2. a fixed minimal dataset
 3. a fixed borderline stress-test dataset
 4. a fixed comparison-pairs dataset
-5. explicit gain fields
-6. accepted and rejected cases
-7. executable dataset checks
-8. executable dataset inspection
-9. pair-level validation for comparative annotations
-10. pair-level inspection for comparative annotations
-11. a unified runner for the whole O1 block
+5. a fixed disagreement-labels dataset
+6. explicit gain fields
+7. accepted and rejected cases
+8. executable dataset checks
+9. executable dataset inspection
+10. pair-level validation for comparative annotations
+11. pair-level inspection for comparative annotations
+12. disagreement-type validation
+13. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -490,9 +561,10 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
+- disagreement inspection tooling
 - harder borderline cases across more domains
 - comparison between multiple annotators on the same inputs
-- explicit disagreement analysis
+- explicit disagreement analysis beyond labels
 - automatic scoring proposals
 - bridge to stronger structural systems
 
@@ -511,9 +583,11 @@ It is now a small but structured protocol with:
 - explicit rejection condition
 - explicit annotation discipline
 - explicit comparison rules
+- explicit disagreement typing
 - validated base dataset
 - validated borderline dataset
 - validated comparison pairs dataset
+- validated disagreement labels dataset
 - executable tooling
 - unified checks runner
 
