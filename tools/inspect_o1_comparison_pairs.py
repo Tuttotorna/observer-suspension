@@ -1,4 +1,4 @@
-mport json
+import json
 import sys
 from collections import Counter, defaultdict
 from pathlib import Path
