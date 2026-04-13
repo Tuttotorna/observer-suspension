@@ -9,6 +9,7 @@ DATASETS = [
 
 COMPARISON_DATASET = Path("data/o1_comparison_pairs.jsonl")
 DISAGREEMENT_DATASET = Path("data/o1_disagreement_labels.jsonl")
+MULTIANNOTATOR_DATASET = Path("data/o1_multiannotator_seed.jsonl")
 
 
 def run_command(command):
@@ -85,6 +86,24 @@ def main():
     disagreement_inspect_code = run_command(disagreement_inspect_cmd)
 
     if disagreement_validate_code != 0 or disagreement_inspect_code != 0:
+        overall_exit_code = 1
+
+    multiannotator_validate_cmd = [
+        python_executable,
+        "tools/validate_o1_multiannotator_seed.py",
+        str(MULTIANNOTATOR_DATASET),
+    ]
+
+    multiannotator_inspect_cmd = [
+        python_executable,
+        "tools/inspect_o1_multiannotator_seed.py",
+        str(MULTIANNOTATOR_DATASET),
+    ]
+
+    multiannotator_validate_code = run_command(multiannotator_validate_cmd)
+    multiannotator_inspect_code = run_command(multiannotator_inspect_cmd)
+
+    if multiannotator_validate_code != 0 or multiannotator_inspect_code != 0:
         overall_exit_code = 1
 
     raise SystemExit(overall_exit_code)
