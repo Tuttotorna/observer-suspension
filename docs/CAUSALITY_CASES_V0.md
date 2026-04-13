@@ -1,6 +1,6 @@
 # Causality Cases v0
 
-his document contains the first focused case set for causality under Protocol O1.
+This document contains the first focused case set for causality under Protocol O1.
 
 The purpose is not to deny causality.
 
