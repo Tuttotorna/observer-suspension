@@ -216,6 +216,11 @@ Verdict pattern coverage:
 - ('accepted', 'accepted'): 3
 - ('accepted', 'rejected'): 1
 
+Agreement type coverage:
+
+- acceptable_convergence: 3
+- verdict_split: 1
+
 This dataset is used to test whether O1 remains structurally stable when the same input is annotated by different annotators.
 
 Current annotator setup:
@@ -823,6 +828,95 @@ All record ids are unique.
 
 ---
 
+## Multi-annotator agreement analysis
+
+Agreement analysis file:
+
+tools/analyze_o1_multiannotator_agreement.py
+
+Purpose:
+
+- classify agreement patterns across annotators on the same input
+- measure gain gap across annotators
+- distinguish acceptable convergence from verdict split
+- show group-level stability under annotator change
+
+Run:
+
+python tools/analyze_o1_multiannotator_agreement.py
+
+Observed output:
+
+O1 multi-annotator agreement analysis
+-------------------------------------
+dataset: data/o1_multiannotator_seed.jsonl
+total records: 8
+total input groups: 4
+average gain gap: 1.25
+min gain gap: 1
+max gain gap: 4
+
+Agreement types:
+- acceptable_convergence: 3
+- verdict_split: 1
+
+Verdict patterns:
+- ('accepted', 'accepted'): 3
+- ('accepted', 'rejected'): 1
+
+Input groups by domain:
+- motion: 2
+- perception: 1
+- time: 1
+
+Group details:
+
+[ma_input_001]
+  domain: motion
+  input: The object is still
+  agreement_type: acceptable_convergence
+  verdict_pattern: ('accepted', 'accepted')
+  gain_gap: 1
+  annotator=annotator_alpha, verdict=accepted, o1_gain=4
+    reformulation: The object remains at constant position relative to the chosen reference frame.
+  annotator=annotator_beta, verdict=accepted, o1_gain=3
+    reformulation: The object does not change position relative to the observer's chosen frame.
+
+[ma_input_002]
+  domain: time
+  input: Time passes
+  agreement_type: acceptable_convergence
+  verdict_pattern: ('accepted', 'accepted')
+  gain_gap: 1
+  annotator=annotator_alpha, verdict=accepted, o1_gain=4
+    reformulation: State changes are ordered and compared in a way experienced as temporal progression by the observer.
+  annotator=annotator_beta, verdict=accepted, o1_gain=3
+    reformulation: Observed change is structured in sequence and interpreted as temporal passage.
+
+[ma_input_003]
+  domain: perception
+  input: I see a tree
+  agreement_type: acceptable_convergence
+  verdict_pattern: ('accepted', 'accepted')
+  gain_gap: 1
+  annotator=annotator_alpha, verdict=accepted, o1_gain=4
+    reformulation: My visual system registers and interprets signals consistent with a tree at this position relative to me.
+  annotator=annotator_beta, verdict=accepted, o1_gain=3
+    reformulation: A portion of the visual field is stabilized and interpreted as a tree.
+
+[ma_input_004]
+  domain: motion
+  input: The train is moving
+  agreement_type: verdict_split
+  verdict_pattern: ('accepted', 'rejected')
+  gain_gap: 4
+  annotator=annotator_alpha, verdict=accepted, o1_gain=4
+    reformulation: The train changes position relative to the observer's current reference frame.
+  annotator=annotator_beta, verdict=rejected, o1_gain=0
+    reformulation: Motion is an illusion created by perspective.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -872,7 +966,8 @@ At this stage, the repository can already show:
 14. disagreement-type inspection
 15. multi-annotator seed validation
 16. multi-annotator seed inspection
-17. a unified runner for the whole O1 block
+17. multi-annotator agreement analysis
+18. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -884,7 +979,7 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- multi-annotator integration inside the unified runner if not yet updated in code
+- integration of multi-annotator agreement analysis into the unified runner
 - harder borderline cases across more domains
 - comparison between more than two annotators on the same inputs
 - explicit disagreement analysis beyond labels
