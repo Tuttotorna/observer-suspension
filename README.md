@@ -1,194 +1,409 @@
 # Observer Suspension
 
-A research framework for exploring structures that emerge when the privileged human observer is no longer assumed as the default center of description.
+A minimal research protocol for detecting and reducing hidden observer privilege in ordinary descriptions.
 
-## Core intuition
+This repository does not propose a final theory of reality.
+It does not attempt to replace science, language, or human cognition.
 
-Many human descriptions implicitly assume:
+Its scope is narrower and harder:
 
-- a stable observer
-- a neutral point of view
-- external objects already given
-- linear time as default
-- narrative causality as natural
+**Given a statement shaped by ordinary human description, can we expose the hidden observer-centered assumptions inside it and produce a structurally less frame-dependent reformulation?**
 
-These assumptions may be useful for survival, communication, and local coordination.  
-But they may also hide structures that only become visible when the human observer is no longer treated as the primary center of the formalism.
+That is the only core task of this repository.
 
-This repository begins from that possibility.
+---
 
-## Initial hypothesis
+## Why this exists
 
-Some fundamental concepts may be partially shaped by anthropic defaults rather than by the deepest structure of the systems they describe.
+Human language is efficient, but it is not neutral.
 
-In particular, the following may depend more than expected on observer-centered human framing:
+Many ordinary statements appear simple only because they hide structural assumptions such as:
 
-- time
-- causality
-- identity
-- objecthood
-- motion
-- description itself
+- a privileged observer frame
+- a stable point of view treated as natural
+- object properties treated as intrinsic rather than relational
+- temporal flow treated as directly given
+- causal narration treated as if it were the structure itself
+- perception treated as neutral access
 
-The goal is not to reject human cognition, but to temporarily suspend specific human defaults and test whether new structures, invariants, or reformulations become visible.
+These assumptions are often useful for local survival and communication.
+They are not therefore structurally universal.
+
+This repository exists to test a simple possibility:
+
+**some descriptions look natural only because observer privilege has been silently built into them.**
+
+If that privilege is made explicit and reduced, different structure may become visible.
+
+---
+
+## Core question
+
+The repository is organized around one question:
+
+**What changes when the privileged human observer is no longer treated as the default center of description?**
+
+Not everything changes.
+Not everything should change.
+The task is not to destroy ordinary language.
+
+The task is to identify where ordinary language compresses frame-dependent structure into apparently absolute statements.
+
+---
 
 ## Scope
 
-This is an early research framework.
+Observer Suspension is a minimal structural framework.
 
 It does not claim:
 
-- a final theory
 - a universal ontology
-- a complete replacement for human description
+- a complete theory of time
+- a complete theory of causality
+- a final model of perception
+- a replacement for ordinary language
+- an automatic truth criterion
 
-It only asks a narrower question:
+It only defines a protocol for structural decomposition of observer-loaded statements.
 
-**What becomes visible when the privileged human observer is no longer assumed as the default center of description?**
-
-## Protocol O1
-
-The first protocol in this repository is:
-
-## O1 - Suspension of the privileged observer
-
-For each standard human statement, we produce five fields:
-
-1. **Standard human formulation**  
-   The ordinary formulation as usually expressed.
-
-2. **Implicit observer assumption**  
-   What observer-centered assumption is built into the statement.
-
-3. **Distortion introduced**  
-   What is compressed, absolutized, or falsely stabilized by that assumption.
-
-4. **De-centered reformulation**  
-   A version that does not treat the human observer as the primary center.
-
-5. **Emerging structure**  
-   What becomes visible after the observer-centered assumption is suspended.
-
-## First examples
-
-### Example 1
-**Standard human formulation:**  
-`The sun rises.`
-
-**Implicit observer assumption:**  
-A local terrestrial observer is treated as the natural center of description.
-
-**Distortion introduced:**  
-A relational geometric configuration is described as if it were an absolute event of the world.
-
-**De-centered reformulation:**  
-The relative configuration between Earth, local horizon, and luminous source changes so that the source becomes visible above the local horizon.
-
-**Emerging structure:**  
-"Rising" is not a property of the Sun itself, but a local relational effect.
-
-### Example 2
-**Standard human formulation:**  
-`The object is still.`
-
-**Implicit observer assumption:**  
-A tacit reference frame is treated as neutral and absolute.
-
-**Distortion introduced:**  
-Frame-relative stability is turned into an intrinsic property of the object.
-
-**De-centered reformulation:**  
-Within the selected frame, the relative positional variation of the object is negligible.
-
-**Emerging structure:**  
-Stillness is relational, not absolute.
-
-### Example 3
-**Standard human formulation:**  
-`Time flows.`
-
-**Implicit observer assumption:**  
-Human phenomenological succession is projected into the structure of reality.
-
-**Distortion introduced:**  
-A lived experience of change is reified into an ontological flowing entity.
-
-**De-centered reformulation:**  
-Ordered differences between system configurations are observed; "flow" is a local phenomenological description.
-
-**Emerging structure:**  
-Temporal flow may be secondary to structure, ordering, or state-difference.
-
-### Example 4
-**Standard human formulation:**  
-`I see a tree.`
-
-**Implicit observer assumption:**  
-A stable self observes a ready-made external object through passive access.
-
-**Distortion introduced:**  
-The object appears as given prior to the perceptual act, while segmentation and stabilization are hidden.
-
-**De-centered reformulation:**  
-A perceptual system stabilizes a portion of the sensory field into a configuration classified as a tree.
-
-**Emerging structure:**  
-Objecthood appears as stabilized structure, not necessarily as primitive givenness.
-
-### Example 5
-**Standard human formulation:**  
-`A causes B.`
-
-**Implicit observer assumption:**  
-The observer compresses a complex dependency structure into a linear narrative arrow.
-
-**Distortion introduced:**  
-Distributed constraints, conditions, and multi-dependencies are reduced to a readable sequential story.
-
-**De-centered reformulation:**  
-A stable dependency between A and B appears under given conditions; the narrative direction may be only a local compression of the structure.
-
-**Emerging structure:**  
-Causality may be better treated as constrained dependency than as default narrative sequence.
-
-## Initial research direction
-
-The first two priority directions are:
-
-### 1. Time without a privileged observer
-Can temporal structure be reformulated without starting from human lived succession as default?
-
-### 2. Causality without a privileged observer
-Can causal structure be reformulated as dependency, configuration, or distributed constraint rather than as human-readable linear narration?
-
-## Why this repository exists
-
-Human cognition is extremely effective locally.  
-But local effectiveness does not guarantee structural universality.
-
-This repository exists to explore whether some apparently fundamental concepts are in part artifacts of observer-centered description.
-
-If so, suspending those defaults may reveal:
-
-- more general structures
-- hidden invariants
-- alternative formalisms
-- new descriptive possibilities
+---
 
 ## Current status
 
-Early-stage conceptual framework.
+This repository has moved beyond pure concept and now contains a minimal technical spine:
 
-The present goal is simple:
+- a frozen first protocol: `docs/O1_PROTOCOL.md`
+- a minimal dataset: `data/o1_miniset.jsonl`
+- a minimal gain rule: `docs/O1_GAIN_CRITERIA.md`
+- evaluated examples: `examples/O1_examples.md`
+- a roadmap: `ROADMAP.md`
 
-- define the first protocol clearly
-- test it on increasingly difficult cases
-- identify whether observer suspension yields non-trivial structural gains
+This is still an early-stage framework.
+But it is no longer just a manifesto.
 
-If it does, the framework deserves deeper formalization.  
-If it does not, it should remain a limited conceptual experiment.
+---
 
-## Author
+## Repository structure
 
-**Massimiliano Brighindi**
+```text
+README.md
+ROADMAP.md
+docs/
+  O1_PROTOCOL.md
+  O1_GAIN_CRITERIA.md
+data/
+  o1_miniset.jsonl
+examples/
+  O1_examples.md
+
+
+---
+
+Protocol O1
+
+The first protocol in this repository is:
+
+O1 - Suspension of the privileged observer
+
+O1 takes an ordinary statement and decomposes it into five fixed fields:
+
+1. Standard formulation
+The original sentence, unchanged.
+
+
+2. Hidden observer assumption
+The observer-centered condition that makes the sentence appear natural.
+
+
+3. Structural distortion
+What the hidden assumption compresses, absolutizes, or falsely stabilizes.
+
+
+4. Decentered reformulation
+A version with lower dependence on privileged observer framing.
+
+
+5. Emergent structure
+The relation or dependency that becomes visible after decentering.
+
+
+
+O1 is not a theory generator. O1 is not a truth machine. O1 is not a rhetorical exercise.
+
+It is only a minimal protocol for exposing hidden observer privilege inside statements.
+
+
+---
+
+Minimal example
+
+Standard formulation
+
+The sun rises
+
+Hidden observer assumption
+
+Assumes a stable Earth-bound observer frame treated as primary.
+
+Structural distortion
+
+Relative apparent motion is compressed into an absolute event attributed to the sun.
+
+Decentered reformulation
+
+The sun's apparent position changes relative to an Earth-bound observer due to Earth's rotation.
+
+Emergent structure
+
+Observed solar motion depends on observer frame and planetary rotation, not on an intrinsic rising event.
+
+
+---
+
+What counts as gain
+
+A reformulation is not useful just because it sounds more abstract.
+
+The repository defines a minimal gain rule in docs/O1_GAIN_CRITERIA.md.
+
+A valid O1 reformulation should improve along explicit structural dimensions such as:
+
+reduced hidden frame dependence
+
+increased relational explicitness
+
+reduced narrative compression
+
+preserved referential continuity
+
+
+This produces an O1_GAIN score from 0 to 4.
+
+Minimum acceptance condition:
+
+referential continuity must be preserved
+
+total gain must be at least 3
+
+
+Without this rule, O1 would collapse into elegant paraphrase. With this rule, O1 becomes minimally testable.
+
+
+---
+
+First domains
+
+The current protocol is applied to observer-loaded statements in domains such as:
+
+motion
+
+time
+
+causality
+
+perception
+
+identity
+
+space
+
+agency
+
+temperature
+
+sound
+
+value
+
+orientation
+
+
+These domains are not final. They are just the first places where hidden observer privilege appears clearly enough to be tested.
+
+
+---
+
+Example domains of compression
+
+The framework starts from a simple observation:
+
+ordinary sentences often hide structure by making relational configurations look intrinsic.
+
+Examples:
+
+The object is still
+
+Time passes
+
+I see a tree
+
+A causes B
+
+The room is silent
+
+The picture is upside down
+
+
+These sentences are not useless. They are locally efficient.
+
+But they may hide:
+
+reference-frame dependence
+
+observer threshold dependence
+
+continuity criteria
+
+perceptual mediation
+
+model-dependent causality
+
+directional conventions presented as absolute
+
+
+Observer Suspension does not reject these statements. It decomposes them.
+
+
+---
+
+What this repository is not
+
+This project is not:
+
+a metaphysical doctrine
+
+anti-scientific critique
+
+relativism
+
+linguistic decoration
+
+phenomenology without criteria
+
+an ontology of everything
+
+
+It does not say that all descriptions are equally valid. It does not say that nothing is real. It does not say that structure depends only on the observer.
+
+It says something narrower:
+
+many ordinary descriptions silently privilege one observer frame, and this privilege can sometimes be exposed and reduced in a reproducible way.
+
+
+---
+
+Success condition
+
+This repository succeeds only if it can show, even at small scale, that:
+
+1. observer-centered statements contain hidden structural assumptions
+
+
+2. O1 can expose these assumptions explicitly
+
+
+3. the reformulated statements are less frame-dependent under a fixed gain rule
+
+
+4. this produces non-trivial structural clarification
+
+
+
+Anything weaker than that is not enough.
+
+
+---
+
+Failure condition
+
+This repository fails if it remains at one of these levels:
+
+elegant epistemic language without protocol
+
+abstract reformulations without comparison
+
+vague philosophy without dataset
+
+rhetorical depth without measurable gain
+
+observer critique without structural output
+
+
+If that happens, the project should be treated as a limited conceptual note and nothing more.
+
+
+---
+
+Immediate research direction
+
+The current direction is simple and concrete:
+
+1. Harden O1
+
+Expand the dataset with harder cases while preserving protocol rigidity.
+
+2. Stress-test gain
+
+Identify borderline examples where reformulation becomes vague, target-shifting, or falsely abstract.
+
+3. Compare domains
+
+Check whether observer privilege behaves differently across motion, time, causality, perception, and identity.
+
+4. Prepare bridge to stronger structural systems
+
+Observer Suspension may later serve as a pre-structural decomposition layer before deeper structural diagnostics.
+
+That bridge is not yet the claim of this repository. It is only a possible next step.
+
+
+---
+
+Why the project matters
+
+If even a small subset of ordinary descriptions turns out to depend heavily on hidden observer privilege, then some apparently basic concepts may be less structurally primary than they appear.
+
+That would matter because it would suggest that:
+
+some descriptions are anthropically compressed
+
+some "obvious" properties are actually frame-dependent
+
+some conceptual primitives may be downstream products of observer-centered language
+
+
+This is worth testing. Not assuming. Testing.
+
+
+---
+
+Minimal reading order
+
+For the shortest useful path through the repository:
+
+1. README.md
+
+
+2. docs/O1_PROTOCOL.md
+
+
+3. docs/O1_GAIN_CRITERIA.md
+
+
+4. examples/O1_examples.md
+
+
+5. data/o1_miniset.jsonl
+
+
+6. ROADMAP.md
+
+
+
+
+---
+
+Author
+
+Massimiliano Brighindi
 
