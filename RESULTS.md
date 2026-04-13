@@ -62,6 +62,29 @@ same input, one acceptable reformulation, one rejected reformulation.
 
 ---
 
+## Comparison pairs dataset status
+
+Comparison dataset file:
+
+data/o1_comparison_pairs.jsonl
+
+Current observed contents:
+
+- total records: 8
+- total pairs: 4
+- valid records: 8
+- invalid records: 0
+
+This dataset is used to compare alternative annotations of the same input:
+- strong acceptable annotation
+- weak acceptable annotation
+- borderline acceptable annotation
+- rejected annotation
+
+It adds controlled variation on identical inputs.
+
+---
+
 ## Validator
 
 Validator file:
@@ -266,17 +289,79 @@ All record ids are unique.
 
 ---
 
+## Comparison pairs validation
+
+Comparison dataset file:
+
+data/o1_comparison_pairs.jsonl
+
+Purpose:
+
+- validate paired A/B annotations on the same input
+- check pair-level structural consistency
+- verify annotation-level metric consistency
+- ensure each pair is complete and comparable
+
+Validator file:
+
+tools/validate_o1_comparison_pairs.py
+
+Run:
+
+python tools/validate_o1_comparison_pairs.py
+
+Observed output:
+
+O1 comparison pairs validation
+------------------------------
+dataset: data/o1_comparison_pairs.jsonl
+total records: 8
+valid records: 8
+invalid records: 0
+total pairs: 4
+
+No validation errors found.
+
+---
+
+## Unified runner
+
+Runner file:
+
+tools/run_o1_checks.py
+
+Purpose:
+
+- validate the base dataset
+- inspect the base dataset
+- validate the borderline dataset
+- inspect the borderline dataset
+- validate the comparison pairs dataset
+
+Run:
+
+python tools/run_o1_checks.py
+
+Current role:
+
+This script is the single operational entry point for the current O1 methodological block.
+
+---
+
 ## Meaning of the current result
 
 At this stage, the repository can already show:
 
 1. a fixed protocol
 2. a fixed minimal dataset
-3. explicit gain fields
-4. accepted and rejected cases
-5. executable dataset checks
-6. executable dataset inspection
-7. a separate borderline dataset for stress-testing
+3. a fixed borderline stress-test dataset
+4. a fixed comparison-pairs dataset
+5. explicit gain fields
+6. accepted and rejected cases
+7. executable dataset checks
+8. executable dataset inspection
+9. pair-level validation for comparative annotations
+10. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -289,9 +374,10 @@ It is not enough yet to prove scientific strength.
 The project still lacks:
 
 - harder borderline cases across more domains
-- comparison between multiple annotators
+- comparison between multiple annotators on the same inputs
 - explicit disagreement analysis
 - automatic scoring proposals
+- dedicated inspection tooling for comparison pairs
 - bridge to stronger structural systems
 
 So the repository is now minimally executable, but still early.
@@ -307,8 +393,12 @@ It is now a small but structured protocol with:
 - explicit fields
 - explicit gain rule
 - explicit rejection condition
-- explicit tooling
+- explicit annotation discipline
+- explicit comparison rules
 - validated base dataset
 - validated borderline dataset
+- validated comparison pairs dataset
+- executable tooling
+- unified checks runner
 
 That is the correct first threshold.
