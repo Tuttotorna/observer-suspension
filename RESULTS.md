@@ -3,17 +3,17 @@
 This file reports the current minimal executable state of the repository.
 
 It is not a scientific validation.
-It is only a reproducible status snapshot of the current O1 dataset and tools.
+It is only a reproducible status snapshot of the current O1 datasets and tools.
 
 ---
 
 ## Current dataset status
 
-Dataset file:
+Base dataset file:
 
-`data/o1_miniset.jsonl`
+data/o1_miniset.jsonl
 
-Current expected contents:
+Current observed contents:
 
 - total records: 13
 - accepted: 12
@@ -36,28 +36,44 @@ Domain coverage:
 
 ---
 
+## Borderline dataset status
+
+Borderline dataset file:
+
+data/o1_borderline_cases.jsonl
+
+Current observed contents:
+
+- total records: 10
+- valid records: 10
+- invalid records: 0
+
+This dataset is used to stress-test O1 on harder matched pairs:
+same input, one acceptable reformulation, one rejected reformulation.
+
+---
+
 ## Validator
 
 Validator file:
 
-`tools/validate_o1_dataset.py`
+tools/validate_o1_dataset.py
 
 Purpose:
 
 - check valid JSONL structure
 - check required string fields
 - check binary gain fields
-- check `o1_gain` consistency
-- check `verdict` consistency
+- check o1_gain consistency
+- check verdict consistency
 - check duplicate ids
 
-Run:
+Run on base dataset:
 
-`python tools/validate_o1_dataset.py`
+python tools/validate_o1_dataset.py
 
-Expected successful output:
+Observed output:
 
-```text
 O1 dataset validation
 ---------------------
 dataset: data/o1_miniset.jsonl
@@ -67,10 +83,24 @@ invalid records: 0
 
 No validation errors found.
 
+Run on borderline dataset:
+
+python tools/validate_o1_dataset.py data/o1_borderline_cases.jsonl
+
+Observed output:
+
+O1 dataset validation
+---------------------
+dataset: data/o1_borderline_cases.jsonl
+total records: 10
+valid records: 10
+invalid records: 0
+
+No validation errors found.
 
 ---
 
-Inspector
+## Inspector
 
 Inspector file:
 
@@ -78,24 +108,18 @@ tools/inspect_o1_dataset.py
 
 Purpose:
 
-summarize total records
-
-summarize average gain
-
-count accepted vs rejected
-
-count records by domain
-
-count records by domain and verdict
-
-print sample records
-
+- summarize total records
+- summarize average gain
+- count accepted vs rejected
+- count records by domain
+- count records by domain and verdict
+- print sample records
 
 Run:
 
 python tools/inspect_o1_dataset.py
 
-Expected output snapshot:
+Observed output:
 
 O1 dataset inspection
 ---------------------
@@ -167,73 +191,53 @@ Sample records:
 
 All record ids are unique.
 
-
 ---
 
-Meaning of the current result
+## Meaning of the current result
 
 At this stage, the repository can already show:
 
 1. a fixed protocol
-
-
 2. a fixed minimal dataset
-
-
 3. explicit gain fields
-
-
 4. accepted and rejected cases
-
-
 5. executable dataset checks
-
-
 6. executable dataset inspection
-
-
+7. a separate borderline dataset for stress-testing
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
 It is not enough yet to prove scientific strength.
 
-
 ---
 
-What is still missing
+## What is still missing
 
 The project still lacks:
 
-harder borderline cases
-
-inter-annotator style comparison
-
-domain expansion
-
-automatic scoring proposals
-
-cross-repo integration with stronger structural systems
-
+- harder borderline cases across more domains
+- comparison between multiple annotators
+- explicit disagreement analysis
+- automatic scoring proposals
+- bridge to stronger structural systems
+- inspection tooling for the borderline dataset
 
 So the repository is now minimally executable, but still early.
 
-
 ---
 
-Current conclusion
+## Current conclusion
 
 Observer Suspension is no longer only an epistemic idea.
 
 It is now a small but structured protocol with:
 
-explicit fields
-
-explicit gain rule
-
-explicit rejection condition
-
-explicit tooling
-
+- explicit fields
+- explicit gain rule
+- explicit rejection condition
+- explicit tooling
+- validated base dataset
+- validated borderline dataset
 
 That is the correct first threshold.
 
