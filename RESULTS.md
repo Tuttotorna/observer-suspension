@@ -242,6 +242,13 @@ Current observed contents:
 - total records: 4
 - valid records: 4
 - invalid records: 0
+- average O1 gain: 4.00
+- min O1 gain: 4
+- max O1 gain: 4
+
+Verdict coverage:
+
+- accepted: 4
 
 Domain coverage:
 
@@ -257,6 +264,40 @@ This dataset starts the next difficulty phase for O1, using inputs that contain:
 - metaphorical temporal motion
 - distributed causal narration
 - agency metaphor
+
+---
+
+## Hard rejected v0 dataset status
+
+Hard rejected dataset file:
+
+data/o1_hard_rejected_v0.jsonl
+
+Current observed contents:
+
+- total records: 4
+- valid records: 4
+- invalid records: 0
+- average O1 gain: 0.00
+- min O1 gain: 0
+- max O1 gain: 0
+
+Verdict coverage:
+
+- rejected: 4
+
+Domain coverage:
+
+- identity: 1
+- perception: 1
+- sound: 1
+- value: 1
+
+Current role:
+
+This dataset records typical hard-case failures where the protocol collapses into abstraction, generic relativism, or pseudo-depth instead of preserving the target.
+
+It adds the failure side of the difficulty phase.
 
 ---
 
@@ -407,21 +448,181 @@ invalid records: 0
 
 No validation errors found.
 
+### Hard rejected v0 validation
+
+Validator file:
+
+tools/validate_o1_hard_rejected_v0.py
+
+Run:
+
+python tools/validate_o1_hard_rejected_v0.py
+
+Observed output:
+
+O1 hard rejected v0 validation
+------------------------------
+dataset: data/o1_hard_rejected_v0.jsonl
+total records: 4
+valid records: 4
+invalid records: 0
+
+No validation errors found.
+
+---
+
+## Inspection blocks
+
+### Hard cases v0 inspection
+
+Inspector file:
+
+tools/inspect_o1_hard_cases_v0.py
+
+Run:
+
+python tools/inspect_o1_hard_cases_v0.py
+
+Observed output:
+
+O1 hard cases v0 inspection
+---------------------------
+dataset: data/o1_hard_cases_v0.jsonl
+total records: 4
+average o1_gain: 4.00
+min o1_gain: 4
+max o1_gain: 4
+
+Records by verdict:
+- accepted: 4
+
+Records by domain:
+- agency: 1
+- causality: 1
+- motion: 1
+- time: 1
+
+Sample hard cases:
+
+[hard_case_001]
+  input_id: hard_001
+  domain: motion
+  standard_formulation: The river flows
+  decentered_reformulation: Water continuously changes position through the river channel, and this ongoing displacement is described at the macroscopic level as river flow.
+  o1_gain: 4
+  verdict: accepted
+
+[hard_case_002]
+  input_id: hard_002
+  domain: time
+  standard_formulation: The deadline is approaching
+  decentered_reformulation: The current time is getting closer to the scheduled time associated with the deadline.
+  o1_gain: 4
+  verdict: accepted
+
+[hard_case_003]
+  input_id: hard_005
+  domain: causality
+  standard_formulation: The market reacted to the news
+  decentered_reformulation: Following the release of the news, market prices and trading behavior changed in ways modeled as responses to new information under current conditions.
+  o1_gain: 4
+  verdict: accepted
+
+[hard_case_004]
+  input_id: hard_006
+  domain: agency
+  standard_formulation: The algorithm wants to minimize error
+  decentered_reformulation: The algorithm is configured to update its parameters in ways that reduce the selected error function under the training procedure.
+  o1_gain: 4
+  verdict: accepted
+
+All case ids are unique.
+
+### Hard rejected v0 inspection
+
+Inspector file:
+
+tools/inspect_o1_hard_rejected_v0.py
+
+Run:
+
+python tools/inspect_o1_hard_rejected_v0.py
+
+Observed output:
+
+O1 hard rejected v0 inspection
+------------------------------
+dataset: data/o1_hard_rejected_v0.jsonl
+total records: 4
+average o1_gain: 0.00
+min o1_gain: 0
+max o1_gain: 0
+
+Records by verdict:
+- rejected: 4
+
+Records by domain:
+- identity: 1
+- perception: 1
+- sound: 1
+- value: 1
+
+Sample rejected hard cases:
+
+[hard_rej_001]
+  input_id: hard_003
+  domain: perception
+  standard_formulation: The color is the same
+  decentered_reformulation: Color is an illusion created by the mind.
+  emergent_structure: Reality is not what it seems.
+  o1_gain: 0
+  verdict: rejected
+
+[hard_rej_002]
+  input_id: hard_004
+  domain: identity
+  standard_formulation: This is the same person
+  decentered_reformulation: Identity is impossible.
+  emergent_structure: The self is a fiction.
+  o1_gain: 0
+  verdict: rejected
+
+[hard_rej_003]
+  input_id: hard_007
+  domain: sound
+  standard_formulation: The room is quiet
+  decentered_reformulation: Silence does not exist.
+  emergent_structure: Everything is vibration.
+  o1_gain: 0
+  verdict: rejected
+
+[hard_rej_004]
+  input_id: hard_008
+  domain: value
+  standard_formulation: This result is better
+  decentered_reformulation: Better is subjective.
+  emergent_structure: Value depends on perspective.
+  o1_gain: 0
+  verdict: rejected
+
+All case ids are unique.
+
 ---
 
 ## Current conclusion
 
-Observer Suspension is now more than a conceptual note.
+Observer Suspension is now a structured methodological system with:
 
-It has become a small but structured methodological system with:
+- base cases
+- borderline cases
+- comparison pairs
+- disagreement labels
+- multi-annotator seed
+- multi-annotator agreement labels
+- accepted hard cases
+- rejected hard cases
+- executable validation and inspection layers
 
-- fixed protocol
-- fixed gain rule
-- fixed rejection condition
-- comparison layer
-- disagreement layer
-- multi-annotator layer
-- first hard-cases layer
-- executable validators and inspectors
+The current difficulty phase now contains both success and failure modes.
 
-That is the correct first threshold.
+That is the correct next threshold.
