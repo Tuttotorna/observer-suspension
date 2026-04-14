@@ -2,7 +2,7 @@
 
 A minimal research protocol for detecting and reducing hidden observer privilege in ordinary descriptions.
 
-This repository does not propose a final theory of reality.
+This repository does not propose a final theory of reality.  
 It does not attempt to replace science, language, or human cognition.
 
 Its scope is narrower and harder:
@@ -28,7 +28,7 @@ Many ordinary statements appear simple only because they silently hide structura
 - comparison criteria left implicit
 - thresholds treated as absolutes
 
-These assumptions are often useful for local survival and communication.
+These assumptions are often useful for local survival and communication.  
 They are not therefore structurally universal.
 
 This repository exists to test a simple possibility:
@@ -51,8 +51,8 @@ The repository is organized around one question:
 
 **What changes when the privileged human observer is no longer treated as the default center of description?**
 
-Not everything changes.
-Not everything should change.
+Not everything changes.  
+Not everything should change.  
 The task is not to destroy ordinary language.
 
 The task is to identify where ordinary language compresses frame-dependent structure into apparently absolute statements, and to test whether a more explicit reformulation preserves the phenomenon or dissolves it.
@@ -88,12 +88,13 @@ It now contains a minimal executable methodological spine:
 - a logic document: `docs/O1_PROTOCOL_LOGIC.md`
 - evaluated examples: `examples/O1_examples.md`
 - hard cases: `examples/O1_hard_cases_v0.md`
+- external application files on real LLM outputs
 - a roadmap: `ROADMAP.md`
 - base, borderline, comparative, multi-annotator, and hard datasets
 - validators and inspectors for each active block
 - a unified runner: `tools/run_o1_checks.py`
 
-This is still early-stage.
+This is still early-stage.  
 But it is no longer just a manifesto.
 
 ---
@@ -110,6 +111,7 @@ docs/
   O1_GAIN_CRITERIA.md
   O1_PROTOCOL_LOGIC.md
   O1_MULTIANNOTATOR_AGREEMENT_RULES.md
+  O1_EXTERNAL_BENCHMARK_v1.md
 
 data/
   o1_miniset.jsonl
@@ -126,6 +128,8 @@ data/
 examples/
   O1_examples.md
   O1_hard_cases_v0.md
+  O1_on_real_llm_outputs_v0.md
+  O1_on_real_llm_outputs_v1_weak_prompts.md
 
 tools/
   validate_o1_dataset.py
@@ -179,7 +183,9 @@ The relation, dependency, threshold, continuity rule, or constraint that becomes
 
 
 
-O1 is not a theory generator. O1 is not a truth machine. O1 is not a rhetorical exercise.
+O1 is not a theory generator.
+O1 is not a truth machine.
+O1 is not a rhetorical exercise.
 
 It is a minimal protocol for exposing hidden observer privilege inside statements and testing whether structural clarification is actually achieved.
 
@@ -190,7 +196,7 @@ Minimal example
 
 Standard formulation
 
-The sun rises
+The sun rises.
 
 Hidden observer assumption
 
@@ -230,14 +236,15 @@ preserved referential continuity
 
 This produces an O1_GAIN score from 0 to 4.
 
-Minimum acceptance condition:
+Minimum acceptance condition
 
 referential continuity must be preserved
 
 total gain must be at least 3
 
 
-Without this rule, O1 would collapse into elegant paraphrase. With this rule, O1 becomes minimally testable.
+Without this rule, O1 would collapse into elegant paraphrase.
+With this rule, O1 becomes minimally testable.
 
 
 ---
@@ -258,7 +265,7 @@ A failed O1 reformulation removes observer privilege only by dissolving the phen
 
 This is formalized in docs/O1_PROTOCOL_LOGIC.md.
 
-Central rule:
+Central rule
 
 If decentering destroys the functional distinction between the phenomenon and its contrast case, it is not explanation but evaporation.
 
@@ -273,7 +280,8 @@ If "better" can no longer be distinguished from "worse under declared criteria",
 If "same color" can no longer be distinguished from "relevantly different color", the reformulation failed.
 
 
-This is the law of functional distinction. It is the methodological core of the project.
+This is the law of functional distinction.
+It is the methodological core of the project.
 
 
 ---
@@ -297,11 +305,12 @@ tools/validate_o1_hard_comparison_pairs.py
 tools/inspect_o1_hard_comparison_pairs.py
 
 
-Unified entry point:
+Unified entry point
 
 python tools/run_o1_checks.py
 
-This does not prove scientific truth. It ensures that the repository maintains structural integrity across datasets, comparisons, and failure-mode documentation.
+This does not prove scientific truth.
+It ensures that the repository maintains structural integrity across datasets, comparisons, and failure-mode documentation.
 
 
 ---
@@ -377,7 +386,7 @@ File:
 data/o1_hard_comparison_pairs.jsonl
 
 
-Current quartet:
+Current quartet
 
 identity
 
@@ -389,6 +398,50 @@ sound
 
 
 This is currently the most front-facing demonstration of the protocol.
+
+
+---
+
+External benchmark layers
+
+The repository also now contains its first external application layer.
+
+v0 - Protected prompts
+
+Real LLMs were asked to explain high-risk claims under prompts explicitly designed to prevent evaporation.
+
+Result: models can often preserve the phenomenon when strongly constrained against abstraction.
+
+File:
+
+examples/O1_on_real_llm_outputs_v0.md
+
+
+v1 - Weak prompts
+
+The same domains were tested again under much weaker prompts.
+
+Result: clear divergence between models and clearer failure modes.
+
+File:
+
+examples/O1_on_real_llm_outputs_v1_weak_prompts.md
+
+
+Key observed external failure modes
+
+pseudo-depth / abstraction
+
+narrative contamination
+
+meme / pragmatic drift
+
+loss of locality
+
+replacement of the phenomenon by its social framing
+
+
+This external layer is important because it shows that O1 can evaluate not only handcrafted examples, but also real model behavior.
 
 
 ---
@@ -420,7 +473,8 @@ value
 orientation
 
 
-These domains are not final. They are the first places where hidden observer privilege appears clearly enough to be tested.
+These domains are not final.
+They are the first places where hidden observer privilege appears clearly enough to be tested.
 
 
 ---
@@ -450,7 +504,8 @@ This result is better
 This is the same person
 
 
-These sentences are not useless. They are locally efficient.
+These sentences are not useless.
+They are locally efficient.
 
 But they may hide:
 
@@ -469,7 +524,8 @@ benchmark dependence
 functional contrast conditions
 
 
-Observer Suspension does not reject these statements. It decomposes them and tests whether the decomposition remains usable.
+Observer Suspension does not reject these statements.
+It decomposes them and tests whether the decomposition remains usable.
 
 
 ---
@@ -493,7 +549,9 @@ an ontology of everything
 a generator of impressive abstractions
 
 
-It does not say that all descriptions are equally valid. It does not say that nothing is real. It does not say that structure depends only on the observer.
+It does not say that all descriptions are equally valid.
+It does not say that nothing is real.
+It does not say that structure depends only on the observer.
 
 It says something narrower and harder:
 
@@ -568,9 +626,11 @@ everything is perspective
 everything is vibration
 
 
-These may sound deep. Inside O1 they count as failure whenever they erase functional distinction rather than reconstructing it.
+These may sound deep.
+Inside O1 they count as failure whenever they erase functional distinction rather than reconstructing it.
 
-This is not a stylistic objection. It is a structural one.
+This is not a stylistic objection.
+It is a structural one.
 
 
 ---
@@ -590,7 +650,8 @@ some conceptual primitives may be downstream products of observer-centered langu
 some apparently profound critiques of ordinary language are methodologically empty
 
 
-This is worth testing. Not assuming. Testing.
+This is worth testing.
+Not assuming. Testing.
 
 
 ---
@@ -620,7 +681,10 @@ For the shortest useful path through the repository:
 7. data/o1_hard_comparison_pairs.jsonl
 
 
-8. RESULTS.md
+8. examples/O1_on_real_llm_outputs_v1_weak_prompts.md
+
+
+9. RESULTS.md
 
 
 
@@ -641,7 +705,7 @@ New hard comparison pairs should only be added if they sharpen the distinction b
 
 3. Increase external usefulness
 
-The protocol should eventually be applied to real AI outputs, technical language, or public explanatory texts.
+The protocol should eventually be applied to real AI outputs, technical language, benchmark discourse, and public explanatory texts.
 
 4. Keep the boundary explicit
 
