@@ -247,6 +247,9 @@ Current observed contents:
 - total records: 4
 - valid records: 4
 - invalid records: 0
+- average gain_gap: 1.75
+- min gain_gap: 1
+- max gain_gap: 4
 
 Agreement type coverage:
 
@@ -257,6 +260,17 @@ Agreement label coverage:
 
 - acceptable_convergence: 3
 - verdict_split: 1
+
+Domain coverage:
+
+- motion: 2
+- perception: 1
+- time: 1
+
+Verdict pattern coverage:
+
+- ('accepted', 'accepted'): 3
+- ('accepted', 'rejected'): 1
 
 This dataset records the classified agreement outcome for each multi-annotator input group.
 
@@ -981,6 +995,111 @@ No validation errors found.
 
 ---
 
+## Multi-annotator agreement labels inspection
+
+Agreement labels inspector file:
+
+tools/inspect_o1_multiannotator_agreement_labels.py
+
+Purpose:
+
+- summarize total records
+- summarize average, min, and max gain_gap
+- count records by agreement type
+- count records by agreement label
+- count records by domain
+- count records by verdict pattern
+- print sample agreement records
+
+Run:
+
+python tools/inspect_o1_multiannotator_agreement_labels.py
+
+Observed output:
+
+O1 multi-annotator agreement labels inspection
+------------------------------------------------
+dataset: data/o1_multiannotator_agreement_labels.jsonl
+total records: 4
+average gain_gap: 1.75
+min gain_gap: 1
+max gain_gap: 4
+
+Records by agreement type:
+- A1: 3
+- A3: 1
+
+Records by agreement label:
+- acceptable_convergence: 3
+- verdict_split: 1
+
+Records by domain:
+- motion: 2
+- perception: 1
+- time: 1
+
+Records by verdict pattern:
+- ('accepted', 'accepted'): 3
+- ('accepted', 'rejected'): 1
+
+Sample agreement records:
+
+[agr_001]
+  input_id: ma_input_001
+  domain: motion
+  input: The object is still
+  agreement_type: A1
+  agreement_label: acceptable_convergence
+  annotator_a_verdict: accepted
+  annotator_b_verdict: accepted
+  annotator_a_gain: 4
+  annotator_b_gain: 3
+  gain_gap: 1
+  notes: Both annotators preserve the same target and remain acceptable, with only a mild precision difference.
+
+[agr_002]
+  input_id: ma_input_002
+  domain: time
+  input: Time passes
+  agreement_type: A1
+  agreement_label: acceptable_convergence
+  annotator_a_verdict: accepted
+  annotator_b_verdict: accepted
+  annotator_a_gain: 4
+  annotator_b_gain: 3
+  gain_gap: 1
+  notes: Both annotators remain acceptable and structurally aligned, with a small gain difference only.
+
+[agr_003]
+  input_id: ma_input_003
+  domain: perception
+  input: I see a tree
+  agreement_type: A1
+  agreement_label: acceptable_convergence
+  annotator_a_verdict: accepted
+  annotator_b_verdict: accepted
+  annotator_a_gain: 4
+  annotator_b_gain: 3
+  gain_gap: 1
+  notes: Both annotators preserve the same input target and remain within acceptable O1 structure.
+
+[agr_004]
+  input_id: ma_input_004
+  domain: motion
+  input: The train is moving
+  agreement_type: A3
+  agreement_label: verdict_split
+  annotator_a_verdict: accepted
+  annotator_b_verdict: rejected
+  annotator_a_gain: 4
+  annotator_b_gain: 0
+  gain_gap: 4
+  notes: One annotator preserves structural acceptability while the other collapses into abstraction and is rejected.
+
+All agreement ids are unique.
+
+---
+
 ## Unified runner
 
 Runner file:
@@ -1000,6 +1119,8 @@ Purpose:
 - validate the multi-annotator seed dataset
 - inspect the multi-annotator seed dataset
 - analyze multi-annotator agreement
+- validate multi-annotator agreement labels dataset
+- inspect multi-annotator agreement labels dataset
 
 Run:
 
@@ -1034,7 +1155,8 @@ At this stage, the repository can already show:
 17. multi-annotator seed inspection
 18. multi-annotator agreement analysis
 19. multi-annotator agreement labels validation
-20. a unified runner for the whole O1 block
+20. multi-annotator agreement labels inspection
+21. a unified runner for the whole O1 block
 
 This is enough to prove that the repository has moved past pure conceptual framing.
 
@@ -1046,8 +1168,7 @@ It is not enough yet to prove scientific strength.
 
 The project still lacks:
 
-- inspection tooling for multi-annotator agreement labels
-- integration of multi-annotator agreement labels into the unified runner
+- integration of multi-annotator agreement labels into the unified runner if not yet updated in code
 - harder borderline cases across more domains
 - comparison between more than two annotators on the same inputs
 - explicit disagreement analysis beyond labels
