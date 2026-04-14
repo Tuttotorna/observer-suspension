@@ -313,6 +313,12 @@ Current observed contents:
 - total pairs: 4
 - valid records: 8
 - invalid records: 0
+- average O1 gain: 2.00
+- min O1 gain: 0
+- max O1 gain: 4
+- average gain gap per pair: 4.00
+- min gain gap: 4
+- max gain gap: 4
 
 Strength coverage:
 
@@ -622,7 +628,128 @@ python tools/inspect_o1_hard_comparison_pairs.py
 
 Observed output:
 
-Pending updated inspection after the fourth pair addition.
+O1 hard comparison pairs inspection
+-----------------------------------
+dataset: data/o1_hard_comparison_pairs.jsonl
+total records: 8
+total pairs: 4
+average o1_gain: 2.00
+min o1_gain: 0
+max o1_gain: 4
+average gain gap per pair: 4.00
+min gain gap: 4
+max gain gap: 4
+
+Records by strength:
+- accepted: 4
+- rejected: 4
+
+Records by verdict:
+- accepted: 4
+- rejected: 4
+
+Records by domain:
+- identity: 2
+- perception: 2
+- sound: 2
+- value: 2
+
+Pair types:
+- accepted_vs_rejected: 4
+
+Hard comparison pairs:
+
+[hard_cmp_001]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: The current individual is classified as the same person as the earlier individual because continuity is preserved across relevant biological, mnemonic, and social identification criteria.
+  emergent_structure: Personal identity here is not a primitive essence but a persistence judgment supported by continuity constraints.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: Identity is an illusion of language because no self remains exactly the same through time.
+  emergent_structure: The self is a fiction and sameness is unreal.
+  o1_gain: 0
+
+  gain_gap: 4
+
+[hard_cmp_002]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_008
+  domain: value
+  input: This result is better
+  decentered_reformulation: This result is evaluated as superior relative to the selected benchmark because it performs better on the relevant criteria under the current goal and trade-off assumptions.
+  emergent_structure: Better is not an intrinsic property of the result but a comparative judgment defined by explicit evaluation constraints.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_008
+  domain: value
+  input: This result is better
+  decentered_reformulation: Better is subjective, so no real comparison is possible.
+  emergent_structure: Value depends on perspective and has no stable structure.
+  o1_gain: 0
+
+  gain_gap: 4
+
+[hard_cmp_003]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_003
+  domain: perception
+  input: The color is the same
+  decentered_reformulation: The surfaces are judged as the same color because, under the current illumination and viewing conditions, they produce sufficiently similar visual responses relative to the relevant comparison criterion.
+  emergent_structure: Color sameness here is a stability judgment over perceptual response and viewing constraints, not a primitive intrinsic property given without conditions.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_003
+  domain: perception
+  input: The color is the same
+  decentered_reformulation: Color does not really exist because it is only constructed by the mind.
+  emergent_structure: Perceived sameness is unreal and reality has no color.
+  o1_gain: 0
+
+  gain_gap: 4
+
+[hard_cmp_004]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_007
+  domain: sound
+  input: The room is quiet
+  decentered_reformulation: The room is judged as quiet because, under the current listening conditions, sound levels and transients remain sufficiently low relative to the relevant background level and auditory detection threshold.
+  emergent_structure: Quiet here is not an absolute absence of vibration but a context-relative low-signal condition defined by threshold, background, and detectable variation.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_007
+  domain: sound
+  input: The room is quiet
+  decentered_reformulation: Silence is impossible because everything vibrates, so quiet is not real.
+  emergent_structure: There is no real quiet because vibration is universal.
+  o1_gain: 0
+
+  gain_gap: 4
 
 ---
 
