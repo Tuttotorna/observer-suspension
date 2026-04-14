@@ -1,0 +1,8 @@
+{"input_id":"hard_001","domain":"motion","input":"The river flows"}
+{"input_id":"hard_002","domain":"time","input":"The deadline is approaching"}
+{"input_id":"hard_003","domain":"perception","input":"The color is the same"}
+{"input_id":"hard_004","domain":"identity","input":"This is the same person"}
+{"input_id":"hard_005","domain":"causality","input":"The market reacted to the news"}
+{"input_id":"hard_006","domain":"agency","input":"The algorithm wants to minimize error"}
+{"input_id":"hard_007","domain":"sound","input":"The room is quiet"}
+{"input_id":"hard_008","domain":"value","input":"This result is better"}
