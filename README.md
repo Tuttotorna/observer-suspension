@@ -1,5 +1,7 @@
 # Observer Suspension
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19571535.svg)](https://doi.org/10.5281/zenodo.19571535)
+
 A minimal research protocol for detecting and reducing hidden observer privilege in ordinary descriptions.
 
 This repository does not propose a final theory of reality.  
