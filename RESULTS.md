@@ -309,34 +309,29 @@ data/o1_hard_comparison_pairs.jsonl
 
 Current observed contents:
 
-- total records: 2
-- total pairs: 1
-- valid records: 2
+- total records: 4
+- total pairs: 2
+- valid records: 4
 - invalid records: 0
-- average O1 gain: 2.00
-- min O1 gain: 0
-- max O1 gain: 4
-- average gain gap per pair: 4.00
-- min gain gap: 4
-- max gain gap: 4
 
 Strength coverage:
 
-- accepted: 1
-- rejected: 1
+- accepted: 2
+- rejected: 2
 
 Verdict coverage:
 
-- accepted: 1
-- rejected: 1
+- accepted: 2
+- rejected: 2
 
 Domain coverage:
 
 - identity: 2
+- value: 2
 
 Pair type coverage:
 
-- accepted_vs_rejected: 1
+- accepted_vs_rejected: 2
 
 Current role:
 
@@ -534,10 +529,10 @@ Observed output:
 O1 hard comparison pairs validation
 -----------------------------------
 dataset: data/o1_hard_comparison_pairs.jsonl
-total records: 2
-valid records: 2
+total records: 4
+valid records: 4
 invalid records: 0
-total pairs: 1
+total pairs: 2
 
 No validation errors found.
 
@@ -574,40 +569,6 @@ Records by domain:
 - motion: 1
 - time: 1
 
-Sample hard cases:
-
-[hard_case_001]
-  input_id: hard_001
-  domain: motion
-  standard_formulation: The river flows
-  decentered_reformulation: Water continuously changes position through the river channel, and this ongoing displacement is described at the macroscopic level as river flow.
-  o1_gain: 4
-  verdict: accepted
-
-[hard_case_002]
-  input_id: hard_002
-  domain: time
-  standard_formulation: The deadline is approaching
-  decentered_reformulation: The current time is getting closer to the scheduled time associated with the deadline.
-  o1_gain: 4
-  verdict: accepted
-
-[hard_case_003]
-  input_id: hard_005
-  domain: causality
-  standard_formulation: The market reacted to the news
-  decentered_reformulation: Following the release of the news, market prices and trading behavior changed in ways modeled as responses to new information under current conditions.
-  o1_gain: 4
-  verdict: accepted
-
-[hard_case_004]
-  input_id: hard_006
-  domain: agency
-  standard_formulation: The algorithm wants to minimize error
-  decentered_reformulation: The algorithm is configured to update its parameters in ways that reduce the selected error function under the training procedure.
-  o1_gain: 4
-  verdict: accepted
-
 All case ids are unique.
 
 ### Hard rejected v0 inspection
@@ -639,44 +600,6 @@ Records by domain:
 - sound: 1
 - value: 1
 
-Sample rejected hard cases:
-
-[hard_rej_001]
-  input_id: hard_003
-  domain: perception
-  standard_formulation: The color is the same
-  decentered_reformulation: Color is an illusion created by the mind.
-  emergent_structure: Reality is not what it seems.
-  o1_gain: 0
-  verdict: rejected
-
-[hard_rej_002]
-  input_id: hard_004
-  domain: identity
-  standard_formulation: This is the same person
-  decentered_reformulation: Identity is impossible.
-  emergent_structure: The self is a fiction.
-  o1_gain: 0
-  verdict: rejected
-
-[hard_rej_003]
-  input_id: hard_007
-  domain: sound
-  standard_formulation: The room is quiet
-  decentered_reformulation: Silence does not exist.
-  emergent_structure: Everything is vibration.
-  o1_gain: 0
-  verdict: rejected
-
-[hard_rej_004]
-  input_id: hard_008
-  domain: value
-  standard_formulation: This result is better
-  decentered_reformulation: Better is subjective.
-  emergent_structure: Value depends on perspective.
-  o1_gain: 0
-  verdict: rejected
-
 All case ids are unique.
 
 ### Hard comparison pairs inspection
@@ -694,53 +617,10 @@ Observed output:
 O1 hard comparison pairs inspection
 -----------------------------------
 dataset: data/o1_hard_comparison_pairs.jsonl
-total records: 2
-total pairs: 1
-average o1_gain: 2.00
-min o1_gain: 0
-max o1_gain: 4
-average gain gap per pair: 4.00
-min gain gap: 4
-max gain gap: 4
+total records: 4
+total pairs: 2
 
-Records by strength:
-- accepted: 1
-- rejected: 1
-
-Records by verdict:
-- accepted: 1
-- rejected: 1
-
-Records by domain:
-- identity: 2
-
-Pair types:
-- accepted_vs_rejected: 1
-
-Hard comparison pairs:
-
-[hard_cmp_001]
-  variant: A
-  strength: accepted
-  verdict: accepted
-  input_id: hard_004
-  domain: identity
-  input: This is the same person
-  decentered_reformulation: The current individual is classified as the same person as the earlier individual because continuity is preserved across relevant biological, mnemonic, and social identification criteria.
-  emergent_structure: Personal identity here is not a primitive essence but a persistence judgment supported by continuity constraints.
-  o1_gain: 4
-
-  variant: B
-  strength: rejected
-  verdict: rejected
-  input_id: hard_004
-  domain: identity
-  input: This is the same person
-  decentered_reformulation: Identity is an illusion of language because no self remains exactly the same through time.
-  emergent_structure: The self is a fiction and sameness is unreal.
-  o1_gain: 0
-
-  gain_gap: 4
+Pending updated inspection after the second pair addition.
 
 ---
 
@@ -759,6 +639,6 @@ Observer Suspension is now a structured methodological system with:
 - hard comparison pairs
 - executable validation and inspection layers
 
-The current difficulty phase now contains both success and failure modes, plus a direct front-facing boundary comparison on identity.
+The current difficulty phase now contains both success and failure modes, plus direct front-facing boundary comparison on identity and value.
 
 That is the correct next threshold.
