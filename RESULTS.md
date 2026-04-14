@@ -301,6 +301,56 @@ It adds the failure side of the difficulty phase.
 
 ---
 
+## Hard comparison pairs dataset status
+
+Hard comparison pairs dataset file:
+
+data/o1_hard_comparison_pairs.jsonl
+
+Current observed contents:
+
+- total records: 2
+- total pairs: 1
+- valid records: 2
+- invalid records: 0
+- average O1 gain: 2.00
+- min O1 gain: 0
+- max O1 gain: 4
+- average gain gap per pair: 4.00
+- min gain gap: 4
+- max gain gap: 4
+
+Strength coverage:
+
+- accepted: 1
+- rejected: 1
+
+Verdict coverage:
+
+- accepted: 1
+- rejected: 1
+
+Domain coverage:
+
+- identity: 2
+
+Pair type coverage:
+
+- accepted_vs_rejected: 1
+
+Current role:
+
+This dataset puts the hard-case border into direct pairwise form:
+- one structurally valid decomposition
+- one pseudo-deep failure
+- same difficult input
+- same domain
+- opposite outcomes
+
+It is the cleanest current front-facing test of O1 under high semantic pressure.
+
+---
+
 ## Validation blocks
 
 ### Base dataset validation
@@ -469,6 +519,28 @@ invalid records: 0
 
 No validation errors found.
 
+### Hard comparison pairs validation
+
+Validator file:
+
+tools/validate_o1_hard_comparison_pairs.py
+
+Run:
+
+python tools/validate_o1_hard_comparison_pairs.py
+
+Observed output:
+
+O1 hard comparison pairs validation
+-----------------------------------
+dataset: data/o1_hard_comparison_pairs.jsonl
+total records: 2
+valid records: 2
+invalid records: 0
+total pairs: 1
+
+No validation errors found.
+
 ---
 
 ## Inspection blocks
@@ -607,6 +679,69 @@ Sample rejected hard cases:
 
 All case ids are unique.
 
+### Hard comparison pairs inspection
+
+Inspector file:
+
+tools/inspect_o1_hard_comparison_pairs.py
+
+Run:
+
+python tools/inspect_o1_hard_comparison_pairs.py
+
+Observed output:
+
+O1 hard comparison pairs inspection
+-----------------------------------
+dataset: data/o1_hard_comparison_pairs.jsonl
+total records: 2
+total pairs: 1
+average o1_gain: 2.00
+min o1_gain: 0
+max o1_gain: 4
+average gain gap per pair: 4.00
+min gain gap: 4
+max gain gap: 4
+
+Records by strength:
+- accepted: 1
+- rejected: 1
+
+Records by verdict:
+- accepted: 1
+- rejected: 1
+
+Records by domain:
+- identity: 2
+
+Pair types:
+- accepted_vs_rejected: 1
+
+Hard comparison pairs:
+
+[hard_cmp_001]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: The current individual is classified as the same person as the earlier individual because continuity is preserved across relevant biological, mnemonic, and social identification criteria.
+  emergent_structure: Personal identity here is not a primitive essence but a persistence judgment supported by continuity constraints.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: Identity is an illusion of language because no self remains exactly the same through time.
+  emergent_structure: The self is a fiction and sameness is unreal.
+  o1_gain: 0
+
+  gain_gap: 4
+
 ---
 
 ## Current conclusion
@@ -621,8 +756,9 @@ Observer Suspension is now a structured methodological system with:
 - multi-annotator agreement labels
 - accepted hard cases
 - rejected hard cases
+- hard comparison pairs
 - executable validation and inspection layers
 
-The current difficulty phase now contains both success and failure modes.
+The current difficulty phase now contains both success and failure modes, plus a direct front-facing boundary comparison on identity.
 
 That is the correct next threshold.
