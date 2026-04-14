@@ -313,6 +313,12 @@ Current observed contents:
 - total pairs: 2
 - valid records: 4
 - invalid records: 0
+- average O1 gain: 2.00
+- min O1 gain: 0
+- max O1 gain: 4
+- average gain gap per pair: 4.00
+- min gain gap: 4
+- max gain gap: 4
 
 Strength coverage:
 
@@ -619,8 +625,75 @@ O1 hard comparison pairs inspection
 dataset: data/o1_hard_comparison_pairs.jsonl
 total records: 4
 total pairs: 2
+average o1_gain: 2.00
+min o1_gain: 0
+max o1_gain: 4
+average gain gap per pair: 4.00
+min gain gap: 4
+max gain gap: 4
 
-Pending updated inspection after the second pair addition.
+Records by strength:
+- accepted: 2
+- rejected: 2
+
+Records by verdict:
+- accepted: 2
+- rejected: 2
+
+Records by domain:
+- identity: 2
+- value: 2
+
+Pair types:
+- accepted_vs_rejected: 2
+
+Hard comparison pairs:
+
+[hard_cmp_001]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: The current individual is classified as the same person as the earlier individual because continuity is preserved across relevant biological, mnemonic, and social identification criteria.
+  emergent_structure: Personal identity here is not a persistence judgment supported by continuity constraints.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_004
+  domain: identity
+  input: This is the same person
+  decentered_reformulation: Identity is an illusion of language because no self remains exactly the same through time.
+  emergent_structure: The self is a fiction and sameness is unreal.
+  o1_gain: 0
+
+  gain_gap: 4
+
+[hard_cmp_002]
+  variant: A
+  strength: accepted
+  verdict: accepted
+  input_id: hard_008
+  domain: value
+  input: This result is better
+  decentered_reformulation: This result is evaluated as superior relative to the selected benchmark because it performs better on the relevant criteria under the current goal and trade-off assumptions.
+  emergent_structure: Better is not an intrinsic property of the result but a comparative judgment defined by explicit evaluation constraints.
+  o1_gain: 4
+
+  variant: B
+  strength: rejected
+  verdict: rejected
+  input_id: hard_008
+  domain: value
+  input: This result is better
+  decentered_reformulation: Better is subjective, so no real comparison is possible.
+  emergent_structure: Value depends on perspective and has no stable structure.
+  o1_gain: 0
+
+  gain_gap: 4
 
 ---
 
