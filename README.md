@@ -1,8 +1,12 @@
+
 # Observer Suspension
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19571535.svg)](https://doi.org/10.5281/zenodo.19571535)
 
 A minimal research protocol for detecting and reducing hidden observer privilege in ordinary descriptions.
+
+**Author:** Massimiliano Brighindi  
+**Contact:** brighissimo@gmail.com
 
 This repository does not propose a final theory of reality.  
 It does not attempt to replace science, language, or human cognition.
@@ -15,7 +19,29 @@ That is the core task of this repository.
 
 ---
 
-## Why this exists
+## Position in the Ecosystem
+
+This repository belongs to the broader **MB-X.01 / OMNIABASE** ecosystem.
+
+Within that ecosystem:
+
+- **[OMNIABASE](https://github.com/Tuttotorna/OMNIABASE)** = the general multirepresentational framework
+- **Observer Suspension** = the epistemic pre-layer
+- **[OMNIA](https://github.com/Tuttotorna/OMNIA)** = the Diagnostics / Structural Measurement branch
+- **[omniabase-coordinate-discovery](https://github.com/Tuttotorna/omniabase-coordinate-discovery)** = the Coordinate Discovery branch
+- **[omega-translator](https://github.com/Tuttotorna/omega-translator)** = the Cross-Representation Translation branch
+
+Observer Suspension is not the whole of OMNIABASE.
+
+Its role is more specific:
+
+**to reduce the silent monopoly of the privileged human observer before structural analysis hardens around a default frame.**
+
+This repository should therefore be read as an epistemic gateway into OMNIABASE, not as a replacement for the broader framework.
+
+---
+
+## Why This Exists
 
 Human language is efficient, but it is not neutral.
 
@@ -47,7 +73,7 @@ This repository studies both.
 
 ---
 
-## Core question
+## Core Question
 
 The repository is organized around one question:
 
@@ -79,7 +105,7 @@ It defines a protocol for structural decomposition of observer-loaded statements
 
 ---
 
-## What this repository now is
+## What This Repository Now Is
 
 This repository is no longer only a conceptual note.
 
@@ -101,7 +127,7 @@ But it is no longer just a manifesto.
 
 ---
 
-## Repository structure
+## Repository Structure
 
 ```text
 README.md
@@ -160,30 +186,29 @@ Protocol O1
 
 The first protocol in this repository is:
 
-O1 - Suspension of the privileged observer
+O1 — Suspension of the privileged observer
 
 O1 takes an ordinary statement and decomposes it into five fixed fields:
 
 1. Standard formulation
+
 The original sentence, unchanged.
 
-
 2. Hidden observer assumption
+
 The observer-centered condition that makes the sentence appear natural.
 
-
 3. Structural distortion
+
 What the hidden assumption compresses, absolutizes, or falsely stabilizes.
 
-
 4. Decentered reformulation
+
 A version with lower dependence on privileged observer framing.
 
-
 5. Emergent structure
+
 The relation, dependency, threshold, continuity rule, or constraint that becomes visible after decentering.
-
-
 
 O1 is not a theory generator.
 O1 is not a truth machine.
@@ -194,7 +219,7 @@ It is a minimal protocol for exposing hidden observer privilege inside statement
 
 ---
 
-Minimal example
+Minimal Example
 
 Standard formulation
 
@@ -219,7 +244,7 @@ Observed solar motion depends on observer frame and planetary rotation, not on a
 
 ---
 
-What counts as gain
+What Counts as Gain
 
 A reformulation is not useful just because it sounds more abstract.
 
@@ -251,7 +276,7 @@ With this rule, O1 becomes minimally testable.
 
 ---
 
-The central logic of the repository
+The Central Logic of the Repository
 
 The decisive distinction in this repository is not simply:
 
@@ -312,12 +337,13 @@ Unified entry point
 python tools/run_o1_checks.py
 
 This does not prove scientific truth.
+
 It ensures that the repository maintains structural integrity across datasets, comparisons, and failure-mode documentation.
 
 
 ---
 
-Active dataset layers
+Active Dataset Layers
 
 The repository now contains several layers of increasing methodological pressure.
 
@@ -404,11 +430,11 @@ This is currently the most front-facing demonstration of the protocol.
 
 ---
 
-External benchmark layers
+External Benchmark Layers
 
 The repository also now contains its first external application layer.
 
-v0 - Protected prompts
+v0 — Protected prompts
 
 Real LLMs were asked to explain high-risk claims under prompts explicitly designed to prevent evaporation.
 
@@ -419,7 +445,7 @@ File:
 examples/O1_on_real_llm_outputs_v0.md
 
 
-v1 - Weak prompts
+v1 — Weak prompts
 
 The same domains were tested again under much weaker prompts.
 
@@ -448,7 +474,7 @@ This external layer is important because it shows that O1 can evaluate not only 
 
 ---
 
-First domains
+First Domains
 
 The current protocol is applied to observer-loaded statements in domains such as:
 
@@ -481,7 +507,7 @@ They are the first places where hidden observer privilege appears clearly enough
 
 ---
 
-Example domains of compression
+Example Domains of Compression
 
 The framework starts from a simple observation:
 
@@ -532,7 +558,7 @@ It decomposes them and tests whether the decomposition remains usable.
 
 ---
 
-What this repository is not
+What This Repository Is Not
 
 This project is not:
 
@@ -562,7 +588,7 @@ many ordinary descriptions silently privilege one observer frame, and this privi
 
 ---
 
-Success condition
+Success Condition
 
 This repository succeeds only if it can show, even at small scale, that:
 
@@ -587,7 +613,7 @@ Anything weaker than that is not enough.
 
 ---
 
-Failure condition
+Failure Condition
 
 This repository fails if it remains at one of these levels:
 
@@ -609,7 +635,7 @@ If that happens, the project should be treated as a limited conceptual note and 
 
 ---
 
-The main failure mode: pseudo-depth
+The Main Failure Mode: Pseudo-Depth
 
 The most important error pattern documented in this repository is pseudo-depth.
 
@@ -637,7 +663,7 @@ It is a structural one.
 
 ---
 
-Why the project matters
+Why the Project Matters
 
 If even a small subset of ordinary descriptions turns out to depend heavily on hidden observer privilege, then some apparently basic concepts may be less structurally primary than they appear.
 
@@ -658,7 +684,7 @@ Not assuming. Testing.
 
 ---
 
-Minimal reading order
+Minimal Reading Order
 
 For the shortest useful path through the repository:
 
@@ -693,7 +719,25 @@ For the shortest useful path through the repository:
 
 ---
 
-Current research direction
+Related Repositories
+
+For the shortest functional path into the broader ecosystem:
+
+OMNIABASE — umbrella framework
+
+OMNIA — Diagnostics / Structural Measurement branch
+
+omniabase-coordinate-discovery — hidden coordinates and latent structure
+
+omega-translator — structural residue across representational boundaries
+
+
+Observer Suspension should be read as the epistemic pre-layer that helps motivate why the privilege of one observer-centered description should not be treated as final.
+
+
+---
+
+Current Research Direction
 
 The current direction is now more precise than before.
 
@@ -718,7 +762,7 @@ That is what gives the project methodological teeth.
 
 ---
 
-Final definition
+Final Definition
 
 The most compact correct definition of this repository is:
 
@@ -727,11 +771,3 @@ Observer Suspension is a protocol for testing whether decentering a human descri
 Or, even more sharply:
 
 It is a methodological filter against pseudo-depth.
-
-
----
-
-Author
-
-Massimiliano Brighindi
-
