@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "observer-suspension"
+version = "0.1.0"
+description = "Structural protocol for exposing and reducing observer privilege in descriptions."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Massimiliano Brighindi", email = "brighissimo@users.noreply.github.com" }
+]
+license = { file = "LICENSE" }
+keywords = ["observer-suspension", "observer-privilege", "structural-protocol", "decentering", "o1-protocol"]
+
+[project.urls]
+Repository = "https://github.com/Tuttotorna/observer-suspension"
+DOI = "https://doi.org/10.5281/zenodo.19571535"
+
+[tool.setuptools]
+py-modules = []
