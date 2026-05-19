@@ -33,6 +33,39 @@ Decision remains external.
 
 ---
 
+
+## Public position
+
+Observer Suspension public positioning is documented here:
+
+- [`docs/OBSERVER_SUSPENSION_PUBLIC_POSITION.md`](docs/OBSERVER_SUSPENSION_PUBLIC_POSITION.md)
+
+Core thesis:
+
+```text
+observer privilege must be exposed before structural claims are trusted
+```
+
+Core boundary:
+
+```text
+observer suspension != observer elimination
+description != reality
+measurement != inference != decision
+```
+
+Core role:
+
+```text
+Observer Suspension exposes observer-dependent assumptions and tests what remains stable when privileged framing is reduced.
+```
+
+Observer Suspension does not remove all observers absolutely.
+
+It does not claim access to reality without mediation.
+
+It does not decide final truth.
+
 ## Core idea
 
 Ordinary language often treats one observer frame as if it were neutral.
