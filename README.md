@@ -34,6 +34,25 @@ Decision remains external.
 ---
 
 
+
+## Foundational Principle
+
+observer-suspension is an observer-frame application of the L.O.N. Multi-Form Invariance Principle:
+
+> No single form is sovereign.
+
+In observer-suspension, this becomes:
+
+> No observer frame is sovereign.
+
+A structure is not trusted because it appears coherent from one observer position, one descriptive frame, one temporal assumption, one causal narrative, or one privileged perspective. It must be tested by suspending observer privilege and comparing what remains across alternative frames of description.
+
+observer-suspension exists to distinguish observer-dependent appearance from structural residue that survives frame removal.
+
+See:
+
+- https://github.com/Tuttotorna/lon-mirror/tree/main/foundation
+
 ## Public position
 
 Observer Suspension public positioning is documented here:
